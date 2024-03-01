@@ -1,22 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <IsPackable>False</IsPackable>
-    <ReleaseVersion></ReleaseVersion>
+    <ReleaseVersion>
+    </ReleaseVersion>
   </PropertyGroup>
-
   <!-- Auto-select supported target frameworks based on MSBuild version -->
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core'">
     <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
   </PropertyGroup>
-    <PropertyGroup Condition="'$(MSBuildRuntimeType)'!='Core'">
-    <TargetFrameworks>net461;netcoreapp2.0</TargetFrameworks>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'!='Core'">
+    <TargetFrameworks>net8.0</TargetFrameworks>
   </PropertyGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\IniParser\IniParser.csproj" />
-    </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\IniParser\IniParser.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <None Update="TestIniFile.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
